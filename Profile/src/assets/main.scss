@@ -1,0 +1,509 @@
+$color-stormy: #494e6b;
+$color-cloud: #98878f;
+$color-sunset: #985e6d;
+$color-evening: #192231;
+$color-white: #f9f0f9;
+$color-background: #99a0cc;
+
+* {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.parallax {
+  /* The image used */
+  background-image: url('../picture/night-landscape.jpg');
+
+  /* Set a specific height */
+  min-height: 100vh;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.profile {
+  background-color: rgba($color: $color-background, $alpha: 1);
+  height: auto;
+
+  .navbar-profile {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    z-index: 100;
+    justify-content: space-around;
+    background-color: rgba($color: $color-stormy, $alpha: 0.8);
+    box-shadow: $color-stormy 0px 10px 20px -13px;
+
+    li {
+      padding-top: 20px;
+      display: flex;
+      list-style-type: none;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+
+      a {
+        text-decoration: none;
+        color: $color-cloud;
+        font-size: 24px;
+        font-family: cursive;
+        cursor: pointer;
+      }
+    }
+
+    li.active {
+      animation: blur 1.5s;
+
+      a {
+        color: $color-white;
+        text-shadow: 1px 1px 2px $color-white;
+      }
+    }
+
+    @keyframes blur {
+      from {
+        margin-left: 100%;
+        width: 200%;
+      }
+
+      to {
+        margin-left: 0;
+        width: 100%;
+      }
+    }
+
+    @media screen and (max-width: 670px) {
+      display: block;
+      height: 230px;
+
+      li {
+        display: flex;
+        list-style-type: none;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+
+        a {
+          text-decoration: none;
+          color: $color-evening;
+          font-size: 24px;
+          font-family: cursive;
+        }
+      }
+    }
+  }
+
+  .home-profile {
+    width: 100%;
+    height: 95vh;
+    animation: slide 2s;
+
+    .profile-img {
+      display: flex;
+      justify-content: center;
+      margin: 40px;
+
+      img {
+        width: 300px;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+    }
+
+    @media screen and (max-width: 500px) {
+      .profile-img {
+        display: flex;
+        justify-content: center;
+        margin: 40px;
+
+        img {
+          width: 150px;
+          height: 150px;
+          border-radius: 50%;
+          object-fit: cover;
+          animation: move 1s;
+        }
+
+        @keyframes move {
+          0% {
+            width: 300px;
+            height: 300px;
+          }
+
+          100% {
+            width: 150px;
+            height: 150px;
+          }
+        }
+      }
+    }
+
+    .profile-content {
+      margin: 70px;
+      color: $color-sunset;
+
+      p {
+        margin-top: 10px;
+        font-size: 18px;
+      }
+
+      a {
+        color: $color-white;
+        text-decoration: underline;
+      }
+
+      a:hover {
+        cursor: pointer;
+      }
+    }
+
+    @media screen and (max-width: 500px) {
+      .profile-content {
+        margin: 20px;
+
+        p {
+          margin-top: 10px;
+          font-size: 16px;
+        }
+
+        a {
+          color: $color-white;
+          text-decoration: underline;
+        }
+
+        a:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .skill-profile {
+    height: auto;
+    width: 100%;
+    animation: slide 4s;
+
+    .profile-content {
+      margin-top: 70px;
+      margin-left: 120px;
+      color: $color-background;
+
+      .fix {
+        width: 60%;
+      }
+
+      h3 {
+        margin-left: 50px;
+        margin-top: 30px;
+      }
+
+      .box-content {
+        margin-bottom: 70px;
+      }
+    }
+
+    @media screen and (max-width: 670px) {
+      display: flex;
+      justify-content: center;
+
+      .profile-content {
+        margin-top: 20px;
+        margin-left: 10px;
+        color: $color-background;
+        width: 70vw;
+
+        .fix {
+          width: 100%;
+          animation: fill 2s;
+        }
+
+        h3 {
+          margin-left: 20px;
+          margin-top: 20px;
+        }
+
+        .box-content {
+          margin-bottom: 70px;
+        }
+
+        @keyframes fill {
+          from {
+            width: 120%;
+          }
+
+          to {
+            width: 100%;
+          }
+        }
+
+        footer {
+          color: $color-white;
+          text-align: center;
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .about-profile {
+    height: auto;
+    width: 100%;
+    animation: slide 2s;
+
+    .profile-header {
+      .container {
+        display: flex;
+        height: 100%;
+        align-items: center;
+      }
+
+      svg {
+        display: block;
+        font: 10.5em 'Montserrat';
+        width: 960px;
+        height: 300px;
+        margin: 0 auto;
+      }
+
+      .text-copy {
+        fill: none;
+        stroke: white;
+        stroke-dasharray: 6% 29%;
+        stroke-width: 3px;
+        stroke-dashoffset: 0%;
+        animation: stroke-offset 5s infinite linear;
+      }
+
+      .text-copy:nth-child(1) {
+        stroke: #99a0cc;
+        animation-delay: -1s;
+      }
+
+      .text-copy:nth-child(2) {
+        stroke: #727796;
+        animation-delay: -2s;
+      }
+
+      .text-copy:nth-child(3) {
+        stroke: #fff;
+        animation-delay: -3s;
+      }
+
+      .text-copy:nth-child(4) {
+        stroke: #c2caff;
+        animation-delay: -4s;
+      }
+
+      .text-copy:nth-child(5) {
+        stroke: #4d61a7;
+        animation-delay: -5s;
+      }
+
+      @keyframes stroke-offset {
+        100% {
+          stroke-dashoffset: -35%;
+        }
+      }
+    }
+
+    .profile-content {
+      display: flex;
+      color: $color-white;
+      margin: 20px 20%;
+      font-size: 24px;
+      font-weight: 500;
+
+      .profile-content-grid {
+        width: 50%;
+      }
+    }
+
+    .profile-content-next {
+      margin: 40px 100px;
+      color: $color-white;
+
+      .title {
+        margin-left: 20px;
+      }
+
+      p {
+        margin: 0 40px;
+        margin-bottom: 30px;
+        font-size: 24px;
+      }
+    }
+
+    @media screen and (max-width: 670px) {
+      height: auto;
+
+      .profile-content {
+        display: flex;
+        color: $color-white;
+        margin: 10px 10%;
+        font-size: 16px;
+        font-weight: 500;
+
+        .profile-content-grid {
+          width: 60%;
+        }
+      }
+
+      .profile-content-next {
+        margin: 40px 20px;
+        color: $color-white;
+
+        .title {
+          margin-left: 20px;
+        }
+
+        p {
+          margin: 0 40px;
+          margin-bottom: 30px;
+          font-size: 16px;
+        }
+      }
+
+      footer {
+        background-color: $color-evening;
+        color: $color-white;
+        text-align: center;
+      }
+    }
+  }
+
+  .project-profile {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    .profile-header {
+      display: flex;
+      justify-content: center;
+
+      .fix {
+        margin-top: 50px;
+      }
+    }
+
+    .profile-content {
+      display: flex;
+      justify-content: center;
+      margin: 5% 20%;
+      text-align: center;
+
+      h2 {
+        color: $color-white;
+        text-align: center;
+      }
+
+      a {
+        font-size: 24px;
+        color: $color-sunset;
+      }
+    }
+
+    .profile-content-next {
+      .content {
+        text-align: center;
+        color: $color-white;
+      }
+    }
+
+    @media screen and (max-width: 670px) {
+      .profile-content {
+        display: flex;
+        justify-content: center;
+        margin: 5% 20%;
+        text-align: center;
+
+        h2 {
+          color: $color-white;
+          font-size: 20px;
+          text-align: center;
+        }
+
+        a {
+          font-size: 16px;
+          color: $color-sunset;
+        }
+      }
+
+      .profile-content-next {
+        .content {
+          text-align: center;
+          color: $color-white;
+        }
+      }
+
+      footer {
+        background-color: rgba($color: $color-evening, $alpha: 1);
+        color: rgba($color: $color-white, $alpha: 1);
+        text-align: center;
+      }
+    }
+  }
+
+  .portfolio {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    margin-top: 20px;
+
+    a {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      img {
+        height: auto;
+        width: 50%;
+      }
+    }
+
+    @media screen and (max-width: 670px) {
+      a {
+        width: 100%;
+        img {
+          height: auto;
+          width: 90%;
+        }
+      }
+
+      footer {
+        background-color: rgba($color: $color-evening, $alpha: 1);
+        color: rgba($color: $color-white, $alpha: 1);
+        text-align: center;
+      }
+    }
+  }
+
+  footer {
+    background-color: rgba($color: $color-evening, $alpha: 0);
+    color: rgba($color: $color-white, $alpha: 0);
+    text-align: center;
+  }
+
+  @keyframes slide {
+    from {
+      margin-left: 100%;
+      width: 200%;
+    }
+
+    to {
+      margin-left: 0;
+      width: 100%;
+    }
+  }
+}
